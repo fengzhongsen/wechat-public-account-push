@@ -29,17 +29,17 @@ const USER_CONFIG = {
 
     /** 每日N句 */
     // 金山每日一句
-    CIBA: true,
+    CIBA: false,
     // 每日一言
-    oneTalk: true,
+    oneTalk: false,
     // 土味情话(彩虹屁)
-    earthyLoveWords: true,
+    earthyLoveWords: false,
     // 朋友圈文案
     momentCopyrighting: false,
     // 毒鸡汤
     poisonChickenSoup: false,
     // 古诗古文
-    poetry: false,
+    poetry: true,
 
     /** 星座运势 */
     horoscope: true,
@@ -61,135 +61,139 @@ const USER_CONFIG = {
    * 接收公众号消息的微信号，如果有多个，需要在[]里用英文逗号间隔
    */
   USERS: [
-    {
-      // 想要发送的人的名字
-      name: '老婆',
-      // 扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
-      id: 'oSIRg5_cxiY06skKjThqVmphhhZk',
-      // 你想对他发送的模板消息的模板ID
-      useTemplateId: 'PxMUTuqksAlPJuwKxb-gCbAWk0Lw31VSNaqfn7x9u9Q',
-      // 所在省份
-      province: '北京',
-      // 所在城市
-      city: '北京',
-      // 新历生日, 仅用作获取星座运势, 格式必须
-      horoscopeDate: '10-05',
-      // 获取什么时候的星座运势，可选：['今日', '明日', '本周', '本月', '今年'], 留空则随机
-      horoscopeDateType: '今日',
-      // 他点击详情后跳转的页面,你可以设置成微博的热榜，也可以设置成其他，网址一定要填对；不填对也没关系，随便你，会打不开而已。
-      openUrl: 'https://wangxinleo.cn',
-      // 专属节日提醒，如果你在这里填写了节日提醒，就不会执行FESTIVALS的提醒了, 和FESTIVALS的配置方法相同，可以往下查看，我这里就不重复写了
-      festivals: [
-        // 注意：此条配置日期为阴历日期，因为`type`中 “生日” 之前有 * 符号
-        {
-          type: '*生日', name: '老婆', year: '1994', date: '10-15',
-        },
-        // 注意：此条配置日期为阳历日期，因为`type`中 “生日” 之前没有 * 符号
-        {
-          type: '节日', name: '与你相遇', year: '2021', date: '03-28',
-        },
-        {
-          type: '节日', name: '执子之手', year: '2021', date: '05-20',
-        },
-        {
-         type: '节日', name: '订婚纪念日', year: '2022', date: '10-05',
-        },
-        {
-         type: '节日', name: '结婚纪念日', year: '2023', date: '05-01',
-        }
-      ],
-      // 专属纪念日/倒数日，如果你在这里填写了纪念日/倒数日，就不会计算CUSTOMIZED_DATE_LIST的日子了, 和CUSTOMIZED_DATE_LIST的配置方法相同，可以往下查看，我这里就不重复写了
-      customizedDateList: [
-        // 在一起的日子
-        { keyword: 'love_day', date: '2021-03-28' },
-        // 结婚纪念日
-        { keyword: 'marry_day', date: '2022-10-05' },
-        // 退伍日
-        // { keyword: 'ex_day', date: '2022-09-10' }
-      ],
-      // 课程表相关配置
-      // 如果courseSchedule不存在或者为空（null）则认为没有课程
-      // 如果courseSchedule是一个数组，则认为不区分单双周，直接填写星期几对应的课表数据即可
-      // 如果courseSchedule是一个对象（如下面所示）
-      courseSchedule: {
-        // 单双周的基准
-        benchmark: {
-          // 这里设置一个日期，用来作为判断课表是否单双周的依据
-          date: '2022-09-23',
-          // 该日期是否为单周
-          isOdd: true
-        },
-        // 课表
-        courses: {
-          // 单周课表
-          // 从星期一到星期日（星期六和星期日的课表数组可不填写）
-          odd: [
-            // 例子，周一的课表
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ],
-            // 周二
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ],
-            // 周三
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ],
-            // 周四
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ],
-            // 周五
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ],
-            // 周六
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ],
-            // 周日
-            [
-              '08:00-09:35 高等数学',
-              '09:50-11:25 高等物理'
-            ]
-          ],
-          // 双周课表
-          even: [
-            [],
-            [],
-            [],
-            [],
-            [],
-            [],
-            []
-          ]
-        }
-      },
-    },
+    // {
+    //   // 想要发送的人的名字
+    //   name: '老婆',
+    //   // 扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
+    //   id: 'oSIRg5_cxiY06skKjThqVmphhhZk',
+    //   // 你想对他发送的模板消息的模板ID
+    //   useTemplateId: 'PxMUTuqksAlPJuwKxb-gCbAWk0Lw31VSNaqfn7x9u9Q',
+    //   // 所在省份
+    //   province: '北京',
+    //   // 所在城市
+    //   city: '北京',
+    //   // 新历生日, 仅用作获取星座运势, 格式必须
+    //   horoscopeDate: '10-15',
+    //   // 获取什么时候的星座运势，可选：['今日', '明日', '本周', '本月', '今年'], 留空则随机
+    //   horoscopeDateType: '今日',
+    //   // 他点击详情后跳转的页面,你可以设置成微博的热榜，也可以设置成其他，网址一定要填对；不填对也没关系，随便你，会打不开而已。
+    //   openUrl: 'https://wangxinleo.cn',
+    //   // 专属节日提醒，如果你在这里填写了节日提醒，就不会执行FESTIVALS的提醒了, 和FESTIVALS的配置方法相同，可以往下查看，我这里就不重复写了
+    //   festivals: [
+    //     // 注意：此条配置日期为阴历日期，因为`type`中 “生日” 之前有 * 符号
+    //     {
+    //       type: '*生日', name: '老婆', year: '1994', date: '10-15',
+    //     },
+    //     // 注意：此条配置日期为阳历日期，因为`type`中 “生日” 之前没有 * 符号
+    //     {
+    //       type: '节日', name: '与你相遇', year: '2021', date: '03-28',
+    //     },
+    //     {
+    //       type: '节日', name: '执子之手', year: '2021', date: '05-20',
+    //     },
+    //     {
+    //      type: '节日', name: '订婚纪念日', year: '2022', date: '10-05',
+    //     },
+    //     {
+    //      type: '节日', name: '结婚纪念日', year: '2023', date: '05-01',
+    //     }
+    //   ],
+    //   // 专属纪念日/倒数日，如果你在这里填写了纪念日/倒数日，就不会计算CUSTOMIZED_DATE_LIST的日子了, 和CUSTOMIZED_DATE_LIST的配置方法相同，可以往下查看，我这里就不重复写了
+    //   customizedDateList: [
+    //     // 相遇的日子
+    //     { keyword: 'meet_day', date: '2021-03-28' },
+    //     // 在一起的日子
+    //     { keyword: 'love_day', date: '2021-05-20' },
+    //     // 订婚纪念日
+    //     { keyword: 'engaged_day', date: '2022-10-05' },
+    //     // 结婚纪念日
+    //     { keyword: 'marry_day', date: '2023-05-01' },
+    //     // 退伍日
+    //     // { keyword: 'ex_day', date: '2022-09-10' }
+    //   ],
+    //   // 课程表相关配置
+    //   // 如果courseSchedule不存在或者为空（null）则认为没有课程
+    //   // 如果courseSchedule是一个数组，则认为不区分单双周，直接填写星期几对应的课表数据即可
+    //   // 如果courseSchedule是一个对象（如下面所示）
+    //   courseSchedule: {
+    //     // 单双周的基准
+    //     benchmark: {
+    //       // 这里设置一个日期，用来作为判断课表是否单双周的依据
+    //       date: '2022-09-23',
+    //       // 该日期是否为单周
+    //       isOdd: true
+    //     },
+    //     // 课表
+    //     courses: {
+    //       // 单周课表
+    //       // 从星期一到星期日（星期六和星期日的课表数组可不填写）
+    //       odd: [
+    //         // 例子，周一的课表
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ],
+    //         // 周二
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ],
+    //         // 周三
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ],
+    //         // 周四
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ],
+    //         // 周五
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ],
+    //         // 周六
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ],
+    //         // 周日
+    //         [
+    //           '08:00-09:35 高等数学',
+    //           '09:50-11:25 高等物理'
+    //         ]
+    //       ],
+    //       // 双周课表
+    //       even: [
+    //         [],
+    //         [],
+    //         [],
+    //         [],
+    //         [],
+    //         [],
+    //         []
+    //       ]
+    //     }
+    //   },
+    // },
     {
       // 想要发送的人的名字
       name: '自己',
       // 扫码关注你的微信测试号后生成的一段字符串，在测试号后台能看到
       id: 'oSIRg5wW8JjXZbF7w3uPAxn7akGM',
       // 你想对他发送的模板消息的模板ID
-      useTemplateId: 'PxMUTuqksAlPJuwKxb-gCbAWk0Lw31VSNaqfn7x9u9Q',
+      useTemplateId: 'u3ys97Vbtgx85iZcqw_YbSNeZNg1Xjf0fGQgAhigzn8',
       // 所在省份
-      province: '北京',
+      province: '',
       // 所在城市
-      city: '北京',
+      city: '',
       // 新历生日, 仅用作获取星座运势, 格式必须
       horoscopeDate: '07-24',
       // 获取什么时候的星座运势，可选：['今日', '明日', '本周', '本月', '今年'], 留空则随机
       horoscopeDateType: '今日',
       // 他点击详情后跳转的页面,你可以设置成微博的热榜，也可以设置成其他，网址一定要填对；不填对也没关系，随便你，会打不开而已。
-      openUrl: 'https://wangxinleo.cn',
+      openUrl: '',
       // 专属节日提醒，如果你在这里填写了节日提醒，就不会执行FESTIVALS的提醒了, 和FESTIVALS的配置方法相同，可以往下查看，我这里就不重复写了
       festivals: [
         // 注意：此条配置日期为阴历日期，因为`type`中 “生日” 之前有 * 符号
@@ -211,14 +215,7 @@ const USER_CONFIG = {
         }
       ],
       // 专属纪念日/倒数日，如果你在这里填写了纪念日/倒数日，就不会计算CUSTOMIZED_DATE_LIST的日子了, 和CUSTOMIZED_DATE_LIST的配置方法相同，可以往下查看，我这里就不重复写了
-      customizedDateList: [
-        // 在一起的日子
-        { keyword: 'love_day', date: '2021-03-28' },
-        // 结婚纪念日
-        { keyword: 'marry_day', date: '2022-10-05' },
-        // 退伍日
-        // { keyword: 'ex_day', date: '2022-09-10' }
-      ],
+      customizedDateList: null,
       courseSchedule: null
     }
   ],
@@ -275,18 +272,27 @@ const USER_CONFIG = {
   FESTIVALS: [
     // 注意：此条配置日期为阴历日期，因为`type`中 “生日” 之前有 * 符号
     {
-      type: '*生日', name: '老婆', year: '1996', date: '09-09', isShowAge: true,
+      type: '*生日', name: '老婆', year: '1994', date: '10-15', isShowAge: true,
     },
     {
-      type: '节日', name: '结婚纪念日', year: '2020', date: '09-03',
+      type: '*生日', name: '自己', year: '1994', date: '06-16', isShowAge: true,
+    },
+    {
+      type: '节日', name: '相遇纪念日', year: '2021', date: '03-28',
+    },
+    {
+      type: '节日', name: '恋爱纪念日', year: '2021', date: '05-20',
+    },
+    {
+      type: '节日', name: '订婚纪念日', year: '2022', date: '10-05',
+    },
+    {
+      type: '节日', name: '结婚纪念日', year: '2023', date: '05-01',
     },
     // 注意：此条配置日期为阳历日期，因为`type`中 “生日” 之前没有 * 符号
-    {
-      type: '生日', name: '李四', year: '1996', date: '09-31', isShowAge: true,
-    },
-    {
-      type: '节日', name: '被搭讪纪念日', year: '2021', date: '09-01',
-    }
+    // {
+    //   type: '生日', name: '李四', year: '1996', date: '09-31', isShowAge: true,
+    // }
     // 你可以不断按格式往下增加
     // ...
   ],
@@ -305,12 +311,16 @@ const USER_CONFIG = {
    * 比如：keyword: "love_date" ，在测试号中就是 {{ love_date.DATA }}
    * */
   CUSTOMIZED_DATE_LIST: [
+    // 相遇的日子
+    { keyword: 'meet_day', date: '2021-03-28' },
     // 在一起的日子
     { keyword: 'love_day', date: '2022-09-08' },
+    // 订婚纪念日
+    { keyword: 'engaged_day', date: '2022-10-05' },
     // 结婚纪念日
-    { keyword: 'marry_day', date: '2022-09-09' },
+    { keyword: 'marry_day', date: '2023-05-01' },
     // 退伍日
-    { keyword: 'ex_day', date: '2022-09-10' }
+    // { keyword: 'ex_day', date: '2022-09-10' }
     // 你可以不断按格式往下增加
     // ...
   ],
@@ -333,7 +343,9 @@ const USER_CONFIG = {
         '你很傻，你很笨，可我还是很羡慕你，因为你有我',
         '遇见你，就好像捡到了100斤的运气'
       ],
-    }
+    },
+    { keyword: 'meet_day', contents: '相遇' },
+    { keyword: 'engaged_day', contents: '订婚' }
     // 你可以不断按格式往下增加
     // ...
   ],
