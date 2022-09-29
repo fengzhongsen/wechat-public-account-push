@@ -185,9 +185,9 @@ const USER_CONFIG = {
       // 你想对他发送的模板消息的模板ID
       useTemplateId: 'u3ys97Vbtgx85iZcqw_YbSNeZNg1Xjf0fGQgAhigzn8',
       // 所在省份
-      // province: null,
-      // // 所在城市
-      // city: null,
+      province: '北京',
+      // 所在城市
+      city: '北京',
       // 新历生日, 仅用作获取星座运势, 格式必须
       horoscopeDate: '07-24',
       // 获取什么时候的星座运势，可选：['今日', '明日', '本周', '本月', '今年'], 留空则随机
